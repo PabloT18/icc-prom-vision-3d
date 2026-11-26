@@ -1,63 +1,15 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <title>UPS Computacion</title>
-    <link
-        rel="stylesheet"
-        href="styles.css"
-    >
-</head>
-
-<body>
-    <div
-        class="logos logos--top-right"
-        aria-label="Logos institucionales"
-    >
-        <img
-            src="assets/logo-ups-computacion-w.png"
-            alt="Universidad Politécnica Salesiana - Computación"
-        >
-        <img
-            src="assets/logo-abet-s2.png"
-            alt="ABET"
-        >
-    </div>
-
-    <img
-        class="logos logos--bottom-left"
-        src="assets/logo-sl.png"
-        alt="Grupo ASU Software Libre"
-    >
-
-    <div id="ui">
-        <div>SINCRONIZACIÓN BIOMÉTRICA: SISTEMA__v4.1</div>
-        <div>ESTADO: <span
-                id="mode"
-                class="stat-val"
-            >INICIANDO</span></div>
-        <div>CUBOS: <span
-                id="count"
-                class="stat-val"
-            >0</span></div>
-        <div class="instruction">2 PUÑOS: MANTENER PARA REINICIAR | 2 PALMAS: MANTENER PARA GIRAR
-        </div>
-    </div>
-
-    <video
-        id="input_video"
-        autoplay
-        playsinline
-    ></video>
-    <canvas id="three_canvas"></canvas>
-    <canvas id="biometric_canvas"></canvas>
-
-    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
-    <script src="app.js"></script>
-</body>
-
-</html>
+<!doctype html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>UPS Computación · Laboratorio de visión</title><link rel="stylesheet" href="styles.css"></head>
+<body class="shell">
+<iframe id="module-frame" title="Constructor 3D" allow="camera; autoplay" src="about:blank"></iframe>
+<nav class="module-menu" aria-label="Cambiar módulo"><details open><summary>MÓDULOS · VISIÓN INTERACTIVA</summary>
+<button data-module="constructor">Constructor 3D</button>
+<button data-module="01-bloques">01 · Romper bloques</button>
+<button data-module="02-pizarra">02 · Pizarra virtual</button>
+<button data-module="04-puntos">04 · Rostro, manos y cuerpo</button>
+<button data-module="05-hilos">05 · Hilos sonoros</button>
+<button data-module="06-invisible">06 · Invisibilidad</button>
+</details></nav>
+<div class="logos logos--top-right" aria-label="Logos institucionales"><img src="assets/logo-ups-computacion-w.png" alt="UPS · Carrera de Computación"><img src="assets/logo-abet-s2.png" alt="ABET"></div>
+<img class="logos logos--bottom-left" src="assets/logo-sl.png" alt="Grupo ASU Software Libre">
+<script src="app.js"></script></body></html>
