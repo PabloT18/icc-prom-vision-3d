@@ -4,19 +4,52 @@
 <head>
     <meta charset="UTF-8">
     <title>UPS Computacion</title>
-    <link rel="stylesheet" href="styles.css">
+    <link
+        rel="stylesheet"
+        href="styles.css"
+    >
 </head>
 
 <body>
+    <div
+        class="logos logos--top-right"
+        aria-label="Logos institucionales"
+    >
+        <img
+            src="assets/logo-ups-computacion-w.png"
+            alt="Universidad Politécnica Salesiana - Computación"
+        >
+        <img
+            src="assets/logo-abet-s2.png"
+            alt="ABET"
+        >
+    </div>
+
+    <img
+        class="logos logos--bottom-left"
+        src="assets/logo-sl.png"
+        alt="Grupo ASU Software Libre"
+    >
+
     <div id="ui">
         <div>SINCRONIZACIÓN BIOMÉTRICA: SISTEMA__v4.1</div>
-        <div>ESTADO: <span id="mode" class="stat-val">INICIANDO</span></div>
-        <div>CUBOS: <span id="count" class="stat-val">0</span></div>
+        <div>ESTADO: <span
+                id="mode"
+                class="stat-val"
+            >INICIANDO</span></div>
+        <div>CUBOS: <span
+                id="count"
+                class="stat-val"
+            >0</span></div>
         <div class="instruction">2 PUÑOS: MANTENER PARA REINICIAR | 2 PALMAS: MANTENER PARA GIRAR
         </div>
     </div>
 
-    <video id="input_video" autoplay playsinline></video>
+    <video
+        id="input_video"
+        autoplay
+        playsinline
+    ></video>
     <canvas id="three_canvas"></canvas>
     <canvas id="biometric_canvas"></canvas>
 

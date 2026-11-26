@@ -5,6 +5,39 @@ body {
     font-family: 'Courier New', monospace;
 }
 
+.logos {
+    position: fixed;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.logos--top-right {
+    bottom: 30px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 14px;
+    background: rgba(0, 0, 0, 0.55);
+}
+
+.logos--top-right img {
+    height: 42px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logos--bottom-left {
+    bottom: 15px;
+    left: 20px;
+    height: 100px;
+    width: 100px;
+    object-fit: contain;
+}
+
+
+
 #input_video {
     position: absolute;
     width: 100vw;
@@ -41,8 +74,9 @@ body {
     font-size: 14px;
     text-shadow: 0 0 10px #00f0ff;
     border-left: 3px solid #00f0ff;
+    border-radius: 14px;
     padding-left: 15px;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.55);
     padding: 15px;
 }
 
