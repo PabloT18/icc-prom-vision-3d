@@ -117,3 +117,64 @@ Autoriza el acceso a la cámara y mantén la terminal abierta mientras utilizas 
 Para detener el servidor, pulsa `Ctrl+C`.
 
 No requiere instalar
+## Laboratorio de módulos
+
+La página principal ofrece un menú a la derecha y mantiene los logos institucionales.
+Cada módulo vive en `modules/<nombre>/` con su HTML y JavaScript; los nuevos módulos
+comparten `modules/shared/runtime.js` y `module.css`. No se necesita compilación.
+
+| Módulo | Reconocimiento | Interacción |
+|---|---|---|
+| Constructor 3D | Hands | Conserva los gestos del constructor original |
+| 01 · Romper bloques | Hands | Mover una mano controla la plataforma; tres vidas y reinicio |
+| 02 · Pizarra | Hands | Pinza para dibujar, apuntar a la paleta inferior para cambiar color; borrador y limpieza por botones |
+| 04 · Puntos | Holistic | Rostro, contornos de ojos, postura y manos; capas activables |
+| 05 · Hilos sonoros | Hands | Una o dos manos deforman las líneas; sonido opcional activado por clic |
+| 06 · Invisibilidad | Selfie Segmentation | Capturar un fondo vacío y activar la composición mediante botones |
+
+El módulo 03 de interpretación de señas no forma parte de esta implementación.
+Los módulos son demostraciones propias inspiradas en los ejemplos, no copias de sus fuentes.
+
+### Cámara y cambio de módulo
+
+En los módulos nuevos pulsa **Iniciar cámara**. Se procesa un fotograma a la vez.
+Al cambiar de módulo se sustituye el documento del visor y se detienen los tracks
+de cámara, el bucle de reconocimiento y el audio anteriores. El constructor conserva
+su inicio automático. Al regresar a un módulo comienza una sesión nueva: dibujos,
+partidas y cubos no se guardan. Los botones del menú también funcionan con teclado.
+
+Usa `python3 -m http.server 8000` y abre `http://localhost:8000/`, o GitHub Pages con
+HTTPS. Se mantienen scripts clásicos y rutas relativas para permitir abrir `index.html`
+directamente cuando el navegador admita cámara y recursos externos desde `file://`.
+La conexión a internet es necesaria para descargar las dependencias y modelos.
+
+### Invisibilidad
+
+Fija la cámara. Pulsa **Capturar fondo en 5 s** y sal del encuadre. Después regresa y
+pulsa **Activar invisibilidad**. El programa sustituye los píxeles de la persona por
+el fondo capturado usando la máscara de segmentación. No reconstruye objetos ocultos:
+si mueves la cámara o cambia el entorno debes capturar el fondo de nuevo. Los bordes
+pueden mostrar artefactos. Esta versión usa botones, no un gesto de pinza, para evitar
+cargar simultáneamente un segundo detector.
+
+### Verificación manual
+
+- Autorizar y denegar cámara; comprobar el mensaje y el botón de reintento.
+- Cambiar varias veces entre módulos y verificar que no continúa el audio anterior.
+- Juego: mover plataforma, perder tres vidas, ganar y reiniciar; retirar la mano pausa.
+- Pizarra: pinza, soltar sin unir trazos, seleccionar color con la otra mano, borrar y limpiar.
+- Puntos: mostrar rostro/cuerpo/manos y alternar las capas.
+- Hilos: mover ambas manos, activar/silenciar audio, retirar manos y cambiar de módulo.
+- Invisibilidad: capturar sin personas, activar/desactivar y recapturar después de mover la cámara.
+- Probar ventana estrecha y navegación con Tab/Enter.
+
+### Pruebas de desarrollo
+
+`node tests/logic.cjs` ejecuta pruebas sin dependencias de los cinco módulos con
+resultados simulados: pausa del juego, herramientas de dibujo, salida corporal,
+captura del fondo, errores de cámara y cierre de tracks/modelos.
+
+`node tests/smoke.cjs` requiere Playwright, Chromium instalado y el servidor local
+en el puerto 8000. Usa cámara y detectores simulados para comprobar navegación y
+controles. Puedes indicar un ejecutable mediante `CHROMIUM_PATH`. Estas pruebas
+no evalúan precisión de los modelos ni sustituyen la prueba manual con personas.

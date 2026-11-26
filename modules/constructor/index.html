@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Constructor 3D</title><meta name="viewport" content="width=device-width, initial-scale=1">
+    <link
+        rel="stylesheet"
+        href="../../styles.css"
+    >
+</head>
+
+<body>
+
+
+
+
+    <div id="ui">
+        <div>SINCRONIZACIÓN BIOMÉTRICA: SISTEMA__v4.1</div>
+        <div>ESTADO: <span
+                id="mode"
+                class="stat-val"
+            >INICIANDO</span></div>
+        <div>CUBOS: <span
+                id="count"
+                class="stat-val"
+            >0</span></div>
+        <div class="instruction">2 PUÑOS: MANTENER PARA REINICIAR | 2 PALMAS: MANTENER PARA GIRAR
+        </div>
+    </div>
+
+    <video
+        id="input_video"
+        autoplay
+        playsinline
+    ></video>
+    <canvas id="three_canvas"></canvas>
+    <canvas id="biometric_canvas"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <script src="module.js"></script>
+</body>
+
+</html>
